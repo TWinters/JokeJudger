@@ -1,0 +1,1 @@
+SELECT x, y, z, u.mail FROM jhtyac2wwf9ny9ms.jokecreations as c left join jokes as j on c.joke_id=j.id left join users as u on c.user_id=u.id order by c.date_added desc;

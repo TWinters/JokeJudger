@@ -1,0 +1,39 @@
+{
+  "name": "JokeJudger",
+  "version": "1.0.0",
+  "main": "appsec.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^1.2.0",
+    "crypto": "^0.0.3",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.5.1",
+    "express": "^4.13.4",
+    "google-auth-library": "^0.9.8",
+    "googleapis": "^12.0.0",
+    "mysql": "^2.11.1",
+    "nodemailer": "^2.5",
+    "pass": "^0.2.0",
+    "passport": "~0.2.0",
+    "passport-local": "~1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Thomas Winters",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TWinters/Preparee.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TWinters/Preparee/issues"
+  },
+  "homepage": "https://github.com/TWinters/JokeJudger",
+  "description": "Site for rating and creating jokes"
+}

@@ -1,0 +1,1 @@
+SELECT u.id, u.mail, count(r.joke_id) FROM jhtyac2wwf9ny9ms.users as u LEFT JOIN ratings as r on u.id=r.user_id GROUP BY u.id;

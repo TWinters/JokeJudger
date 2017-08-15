@@ -1,0 +1,100 @@
+<div class="container">
+
+    <!-- <div class="row">
+    </div> -->
+
+    <h1>Hall of fame</h1>
+
+    <p>
+        These are the highest rated jokes on JokeJudger.
+    </p>
+
+    <div class="row load-jokes" ng-if="!hasLoadedBestJokes.value">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading hall of fame...</span>
+    </div>
+
+    <div ng-show="!jokesOfWeek.length && !jokesOfMonth.length && !jokesAllTime.length && hasLoadedBestJokes.value">
+        <p>
+            No jokes found
+        </p>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="panel panel-default" ng-show="jokesLastWeek.length && hasLoadedBestJokes.value && jokesLastWeek[0].averageScore">
+
+        <div class="panel-heading">
+            <h3>Highest scores (Last week)</h3>
+        </div>
+
+        <ol class="panel-body list-group created-jokes">
+
+            <li class="list-group-item row" ng-repeat="joke in jokesLastWeek" ng-if="joke.averageScore">
+                <!-- Joke -->
+                <div class="pull-left">
+                    <strong>{{$index+1}}.</strong>
+                    <span ng-bind-html="applyPattern(joke)"></span>
+                </div>
+
+                <div class="pull-right">
+                    {{trimNumber(joke.averageScore)}}
+                    <span class="fa fa-star"></span>
+                </div>
+              
+
+            </li>
+        </ol>
+    </div>
+
+    <div class="panel panel-default" ng-show="jokesLastMonth.length && hasLoadedBestJokes.value && jokesLastMonth[0].averageScore">
+
+        <div class="panel-heading">
+            <h3>Highest scores (Last month)</h3>
+        </div>
+
+        <ol class="panel-body list-group created-jokes">
+
+            <li class="list-group-item row" ng-repeat="joke in jokesLastMonth" ng-if="joke.averageScore">
+                <!-- Joke -->
+                <div class="pull-left">
+                    <strong>{{$index+1}}.</strong>
+                    <span ng-bind-html="applyPattern(joke)"></span>
+                </div>
+
+                <div class="pull-right">
+                    {{trimNumber(joke.averageScore)}}
+                    <span class="fa fa-star"></span>
+                </div>
+              
+
+            </li>
+        </ol>
+    </div>
+
+
+    <div class="panel panel-default" ng-show="jokesAllTime.length && hasLoadedBestJokes.value && jokesAllTime[0].averageScore">
+
+        <div class="panel-heading">
+            <h3>Highest scores (All time)</h3>
+        </div>
+
+        <ol class="panel-body list-group created-jokes">
+
+            <li class="list-group-item row" ng-repeat="joke in jokesAllTime" ng-if="joke.averageScore">
+                <!-- Joke -->
+                <div class="pull-left">
+                    <strong>{{$index+1}}.</strong>
+                    <span ng-bind-html="applyPattern(joke)"></span>
+                </div>
+
+                <div class="pull-right">
+                    {{trimNumber(joke.averageScore)}}
+                    <span class="fa fa-star"></span>
+                </div>
+              
+
+            </li>
+        </ol>
+    </div>
+</div>

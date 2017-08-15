@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row login">
+            <h1 class="col-md-12">Login</h1>
+
+            <form class="form-inputs col-md-12" method="post" action="/login">
+                <div class="form-group">
+                    <input type="text" ng-model="userLogin.mail" name="username" id="inputUsername" class="form-control" placeholder="Mail address" required>
+                    <input type="password" ng-model="userLogin.password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default btn-block">
+                        <span class="fa fa-sign-in" aria-hidden="true"></span>
+                        Login
+                    </button>
+                </div>
+            </form>
+            <div class="register-suggest">
+                <p>
+                    <a href="#/register" class="">
+                        <span class="typcn typcn-user-add" aria-hidden="true"></span>
+                        Create a new account
+                    </a>
+                </p>
+                <p>
+                    <a href="#/reset-password" class="">
+                        <span class="typcn typcn-key" aria-hidden="true"></span>
+                        Forgot your password?
+                    </a>
+                </p>
+            </div>
+    </div>
+
+</div>

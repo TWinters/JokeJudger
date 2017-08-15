@@ -1,0 +1,135 @@
+<div class="container">
+
+
+    <div class="alert alert-warning" ng-if="!getUser() || !getUser().mail">
+        <strong></strong>
+        <span>Please <a href="/#/register">register</a> in order to rate and create jokes.</span>
+    </div>
+
+    <div class="row load-jokes" ng-if="!hasLoadedJokes.value">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading jokes...</span>
+    </div>
+
+    <div class="row rate-joke" ng-show="jokes.length > 0">
+        <div class="rate-joke-container col-md-12">
+            <span class="joke" ng-bind-html="applyPattern(jokes[0], true)"></span>
+            <!-- <p class="joke">{{getPremise(jokes[0])}}</p>
+            <p class="joke">{{getConclusion(jokes[0])}}</p> -->
+        </div>
+
+        <div class="rate-stars hidden-xs" ng-mouseleave='setRating(0)'>
+            <span aria-hidden="true" ng-repeat="star in stars"><span class="{{star.icon}}" ng-mouseover='star.rate()' ng-click="rate(jokes[0],star.rating)" data-toggle="tooltip" data-placement="top" title="{{star.label}}"></span></span>
+        </div>
+
+        <div class="other-rating-container hidden-xs">
+            <span class="btn btn-default" ng-click="markAsIncomprehensive(jokes[0])" data-toggle="tooltip" data-placement="bottom" title="I'm missing knowledge to understand the joke">
+                <span class="fa fa-question" aria-hidden="true"></span>
+                I don't get it
+            </span>
+            <span class="btn btn-default" ng-click="markAsTooOffensive(jokes[0])" data-toggle="tooltip" data-placement="bottom" title="Report this joke to the administrator">
+                <span class="typcn typcn-flag" aria-hidden="true"></span>
+                Too offensive
+            </span>
+        </div>
+
+
+        <div class="rate-stars visible-xs">
+            <span aria-hidden="true" ng-repeat="star in stars">
+                <span class="{{star.icon}}" ng-mouseover='star.rate()' ng-click="rate(jokes[0],star.rating)" data-toggle="tooltip" data-placement="top"></span>
+            </span>
+        </div>
+
+        <div class="other-rating-container-sm visible-xs row">
+            <span class="btn btn-default btn-sm col-sm-6" ng-click="markAsIncomprehensive(jokes[0])" data-toggle="tooltip" data-placement="bottom" title="I'm not understanding all of the words">
+                <span class="fa fa-question" aria-hidden="true"></span>
+                I don't get it
+            </span>
+            <span class="btn btn-default btn-sm col-sm-6" ng-click="markAsTooOffensive(jokes[0])" data-toggle="tooltip" data-placement="bottom" title="Report this joke to the administrator">
+                <span class="typcn typcn-flag" aria-hidden="true"></span>
+                Too offensive
+            </span>
+        </div>
+
+
+        <div class="star-explanation visible-xs">
+            <span aria-hidden="true" ng-repeat="star in stars">
+                <p>
+                    {{ "\u2605"+($index+1) + " = " + star.label}}
+                </p>
+            </span>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="row rate-joke" ng-show="jokes.length === 0 && hasLoadedJokes.value">
+        <div class="rate-joke-container">
+            <p class="joke">
+                You've rated all jokes! You're the best!
+            </p>
+
+            <p>
+                We love seeing you come back later to rate some more, fresh jokes!
+            </p>
+
+            <p class="bookmarker-container">
+                <a id="bookmark-this" class="btn btn-default" href="" title="Bookmark This Page">
+                    
+                        <span class="fa fa-bookmark"></span>
+                        Bookmark JokeJudger
+                </a>
+            </p>
+        </div>
+    </div>
+    
+        <div class="disclaimer">
+            <!-- <p>
+            All jokes are user-generated.
+            </p> -->
+            <p>
+            <a href="/#/create">Create your own jokes</a> and see how they perform!
+            </p>
+        </div>
+
+</div>
+
+
+
+
+
+<!-- Bookmarking -->
+<script>
+    jQuery(function($) {
+      $('#bookmark-this').click(function(e) {
+        var bookmarkURL = window.location.href;
+        var bookmarkTitle = document.title;
+
+        if ('addToHomescreen' in window && addToHomescreen.isCompatible) {
+          // Mobile browsers
+          addToHomescreen({ autostart: false, startDelay: 0 }).show(true);
+        } else if (window.sidebar && window.sidebar.addPanel) {
+          // Firefox <=22
+          window.sidebar.addPanel(bookmarkTitle, bookmarkURL, '');
+        } else if ((window.sidebar && /Firefox/i.test(navigator.userAgent)) || (window.opera && window.print)) {
+          // Firefox 23+ and Opera <=14
+          $(this).attr({
+            href: bookmarkURL,
+            title: bookmarkTitle,
+            rel: 'sidebar'
+          }).off(e);
+          return true;
+        } else if (window.external && ('AddFavorite' in window.external)) {
+          // IE Favorites
+          window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+        } else {
+          // Other browsers (mainly WebKit & Blink - Safari, Chrome, Opera 15+)
+          alert('Press ' + (/Mac/i.test(navigator.userAgent) ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
+        }
+
+        return false;
+      });
+    });
+</script>

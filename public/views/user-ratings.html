@@ -1,0 +1,62 @@
+<div class="container">
+
+    <!-- <div class="row">
+    </div> -->
+
+    <h1>My ratings</h1>
+
+
+    <p>
+        These are all the jokes you have rated on JokeJudger, sorted by how many stars you gave them. <a href="/#/rate">Rate some more</a>!
+    </p>
+
+    <div class="row load-jokes" ng-if="!hasLoadedUserRatings.value">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading user ratings...</span>
+    </div>
+
+    <div ng-show="!getUser().ratings.length && hasLoadedUserRatings.value">
+        <p>
+            You haven't rated a joke yet.
+        </p>
+
+
+        <p>
+            <a class="btn btn-default" href="/#/rate">
+                <span class="typcn typcn-heart-full-outline" aria-hidden="true"></span>
+                Rate your first joke
+            </a>
+        </p>
+    </div>
+
+    <div class="panel panel-default" ng-repeat="rating in range(1,5) | orderBy: 'rating' : true" ng-show="getUser().ratings.length && hasLoadedUserRatings.value">
+        <div class="panel-heading">
+            <h3>
+                <!-- <em>
+                    Rated as
+                </em> -->
+                <!-- <strong> -->
+                <!-- </strong> -->
+                
+                <!-- <div class=""> -->
+                    <!-- <span class="fa fa-star" ng-repeat="n in range(1,rating)"></span><span class="fa fa-star-o" ng-repeat="n in range(rating,4)"></span> -->
+                    {{labels[rating-1]}}
+                <!-- </div> -->
+                <span class="pull-right">
+                </span>
+            </h3>
+        </div>
+        <div class="panel-body list-group created-jokes">
+            <div class="list-group-item row" ng-repeat="joke in getUser().ratings | filter:{ score:rating}:true">
+              
+                <!-- Joke -->
+                <div class="pull-left" ng-bind-html="applyPattern(joke)"></div>
+              
+                <!-- Rating -->
+                <div class="pull-right">
+                    <span class="fa fa-star" ng-repeat="n in range(1,joke.score)"></span><span class="fa fa-star-o" ng-repeat="n in range(joke.score,4)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

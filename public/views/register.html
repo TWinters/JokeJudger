@@ -1,0 +1,76 @@
+<div class="container">
+
+    <!-- <div class="row">
+        <h1>Create a joke</h1>
+    </div> -->
+    
+    <div class="row register">
+            <div class="alert alert-{{alert.type}}" ng-if=alert.message>
+                <strong>{{alert.message}}</strong>
+            </div>
+
+            <h1 class="col-md-12">Register</h1>
+
+            <form class="form-inputs" ng-submit="register()" name="form" class="account-creator" role="form">
+                <div class="col-md-12 register-container">
+                    <div class="form-group" ng-class="{ 'has-error': form.mail.$dirty &amp;&amp; form.mail.$error.required }">
+                        <label for="mail">
+                            <strong>
+                                <span class="fa fa-envelope" aria-hidden="true"></span>
+                                Mail address
+                            </strong>
+                        </label>
+                        <input type="email" name="mail" class="form-control" ng-model="user.mail" required placeholder="Email" autocorrect="off" autocapitalize="off"/>
+                        <span ng-show="form.mail.$dirty && form.mail.$error.required" class="help-block">Please enter an e-mail adress</span>
+                        <span ng-show="form.mail.$dirty && form.mail.$invalid" class="help-block">Invalid mailadress</span>
+                    </div>
+
+
+
+                    <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && (form.password.$invalid || (form.confirm.$dirty && user.password !== user.confirm) ) }">
+                        <label for="password">
+                            <strong>
+                                <span class="fa fa-key" aria-hidden="true"></span>
+                                Password
+                            </strong>
+                        </label>
+                        <input type="password" name="password" id="password" class="form-control" ng-model="user.password" placeholder="Password" ng-minlength="6" required autocorrect="off" autocapitalize="off"/>
+
+                        <input type="password" name="confirm" id="confirm" class="form-control" ng-model="user.confirm" placeholder="Repeat password" ng-minlength="6" required autocorrect="off" autocapitalize="off"/>
+
+                        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Please fill in a password</span>
+                        
+                        <span ng-show="form.confirm.$dirty && form.confirm.$error.required" class="help-block">Please repeat your password</span>
+                        
+                        <span ng-show="form.confirm.$dirty && user.password !== user.confirm" class="help-block">The passwords don't match!</span>
+                        
+                        <span ng-show="form.password.$dirty && form.password.$error.minlength" class="help-block">The password isn't long enough</span>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': form.mail.$dirty &amp;&amp; form.mail.$error.required }">
+                        <input id="native_english_check" type="checkbox" name="nativeEnglish" ng-model="user.nativeEnglish"/>
+                        <label for="native_english_check">
+                            <strong>
+                                <span class="fa fa-language" aria-hidden="true"></span>
+                                English is my native language
+                            </strong>
+                        </label>
+                        <div>
+                            <em>This question is relevant because it might deliver insights in how specific jokes might get different reactions based on the audience's native language.</em>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" ng-disabled="form.$invalid || (user.password !== user.confirm)" class="btn btn-default btn-block">Register</button>
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="col-md-12 submit-button-container">
+            </div>
+
+    </div>
+
+</div>

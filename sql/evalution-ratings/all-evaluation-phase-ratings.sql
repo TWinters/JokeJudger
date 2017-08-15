@@ -1,0 +1,1 @@
+SELECT score, COUNT(*) as count FROM ratings WHERE date > '2017-08-07 00:00:00.000000' GROUP BY score ;

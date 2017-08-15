@@ -1,0 +1,47 @@
+<div class="container">
+
+    <!-- <div class="row">
+    </div> -->
+
+    <h1>Jokes overview</h1>
+
+    <div class="row load-jokes" ng-if="!hasLoadedJokeOverview.value">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading overview...</span>
+    </div>
+
+    <div ng-show="!jokeOverview.length && hasLoadedJokeOverview.value">
+        <p>
+            No jokes found
+        </p>
+    </div>
+
+    <div class="pull-right" ng-show="jokeOverview.length && hasLoadedJokeOverview.value">
+      <div class="btn btn-default btn-sm" ng-click="sortOn('dateAdded')">
+        <span class="typcn typcn-calendar"></span> Sort on date
+      </div>
+      <div class="btn btn-default btn-sm" ng-click="sortOn('offensiveCount')">
+        <span class="typcn typcn-flag"></span> Sort on offensive markings
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="panel panel-default" ng-show="jokeOverview.length && hasLoadedJokeOverview.value">
+        <div class="panel-body list-group created-jokes">
+
+            <div class="list-group-item row" ng-repeat="joke in jokeOverview | orderBy: sorting : true">
+                <!-- Joke -->
+                <div class="pull-left" ng-bind-html="applyPattern(joke)"></div>
+              
+                <!-- Button to set offensive -->
+                <div class="btn btn-sm {{joke.offensive ? 'btn-danger' : 'btn-default'}} pull-right" data-toggle="tooltip" data-placement="top" title="Times marked as too offensive" ng-click="setJokeOffensive(joke, !joke.offensive)">
+                    <span class="typcn typcn-flag" aria-hidden="true"></span> {{joke.offensiveCount}}
+                </div>
+
+                <!-- Date added -->
+                <em class="pull-right admin-date-added">{{joke.dateAdded | timeAgo}}</em>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+SELECT score, COUNT(*) as count FROM ratings AS r WHERE date > '2017-08-07 00:00:00.000000' AND EXISTS (SELECT * FROM jokecreations AS c WHERE c.joke_id=r.joke_id and c.user_id>2 and c.user_id!=7628199) GROUP BY score ;

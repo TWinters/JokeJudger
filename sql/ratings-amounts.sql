@@ -1,0 +1,1 @@
+SELECT x,y,z,count(r.user_id) as ratingAmount FROM jhtyac2wwf9ny9ms.jokes as j left join ratings as r on j.id=r.joke_id group by j.x, j.y, j.z  order by ratingAmount asc ;

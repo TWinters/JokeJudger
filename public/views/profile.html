@@ -1,0 +1,82 @@
+<div class="container">
+
+    <!-- <div class="row">
+    </div> -->
+
+    <h1>Profile</h1>
+
+
+    <a class="btn btn-default pull-right" href="#/modify-password">
+        <span class="fa fa-cog" aria-hidden="true"></span>
+        Modify password
+    </a>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+                <span class="fa fa-user" aria-hidden="true"></span>
+            <strong>User:</strong>
+            {{getUser().mail}}
+        </div>
+        <div class="panel-body">
+            <!-- <p>
+                <span class="typcn typcn-heart" aria-hidden="true"></span>
+                <strong>JokeJudger rank:</strong>
+                {{getRank(getUser())}}
+            </p> -->
+            <p>
+                <span class="typcn typcn-heart" aria-hidden="true"></span>
+                <strong>Joke Judging rank:</strong>
+                <span data-toggle="tooltip" data-placement="top" data-original-title="{{ rateExplanation.value }}">
+                    {{getRateRank(getUser().score).title}}
+
+                    <a href="#/user-ratings">({{getUser().score}})</a>
+                </span>
+
+
+                <a class="btn btn-default btn-sm pull-right" href="#/rate">
+                    <span class="typcn typcn-heart" aria-hidden="true"></span>
+                    Rate more
+                </a>
+            </p>
+            <p>
+                <span class="typcn typcn-plus" aria-hidden="true"></span>
+                <strong>Comedy Creation rank:</strong>
+
+                <span data-toggle="tooltip" data-placement="top" data-original-title="{{ createExplanation.value }}">
+                    {{getCreateRank(getUser().jokes.length).title}} 
+
+                    <a href="#/user-jokes">({{getUser().jokes.length || 0}})</a>
+                </span>
+
+
+                <a class="btn btn-default btn-sm pull-right" href="#/create">
+                    <span class="typcn typcn-plus" aria-hidden="true"></span>
+                    Create more
+                </a>
+            </p>
+            <!-- <p>
+                <span class="fa fa-envelope" aria-hidden="true"></span>
+                <strong>Mail</strong>:
+                {{getUser().mail}}
+            </p> -->
+            <p>
+                <span class="typcn typcn-calendar" aria-hidden="true"></span>
+                <strong>Rating jokes since</strong>:
+                {{getUser().dateJoined | date}}
+            </p>
+
+            <div>
+                <span class="fa fa-toggle-{{getUser().adult ? 'off' : 'on'}}" aria-hidden="true" ng-click="modifyAdult()"></span>
+                <!-- <span class="typcn typcn-flag" aria-hidden="true"></span> -->
+                <!-- <div> -->
+                    
+                <strong>Offensive jokes filter turned </strong><span ng-if="!getUser().adult"><strong>on:</strong> You're not seeing jokes marked as too offensive</span><span ng-if="getUser().adult"><strong>off:</strong> You can see all jokes</span>
+                <!-- </div> -->
+
+                <!-- <span class="btn btn-default btn-sm pull-right" ng-click="modifyAdult()"> -->
+                <!-- </span> -->
+            </div>
+        </div>
+
+    </div>
+</div>

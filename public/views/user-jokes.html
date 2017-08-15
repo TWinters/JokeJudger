@@ -1,0 +1,102 @@
+<div class="container">
+
+    <!-- <div class="row">
+    </div> -->
+
+    <h1>My jokes</h1>
+
+    <p>
+        These are all the jokes you've created on JokeJudger, along with their ratings. <a href="/#/create">Create some more</a>!
+    </p>
+
+    <div class="row load-jokes" ng-if="!hasLoadedUserJokes.value">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading user jokes...</span>
+    </div>
+
+    <div class="pull-right" ng-show="getUser().jokes.length && hasLoadedUserJokes.value">
+      <div class="btn btn-default btn-sm" ng-click="openAllHistograms()">
+        <span class="entypo-down-open"></span> Open all graphs
+      </div>
+      <div class="btn btn-default btn-sm" ng-click="closeAllHistograms()">
+        <span class="entypo-up-open"></span> Close all graphs
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+
+
+
+    <div ng-show="!getUser().jokes.length && hasLoadedUserJokes.value">
+        <p>
+            You haven't created a joke yet.
+        </p>
+        <p>
+            <a class="btn btn-default" href="/#/create">
+                <span class="typcn typcn-plus" aria-hidden="true"></span>
+                Create your first joke
+            </a>
+        </p>
+    </div>
+    
+    <div class="panel panel-default" ng-show="getUser().jokes.length && hasLoadedUserJokes.value">
+        <div class="panel-body list-group created-jokes">
+            <div class="list-group-item row" ng-repeat="joke in getUser().jokes | orderBy: 'averageRating' : true">
+              
+                <!-- Joke -->
+                <div class="pull-left" ng-bind-html="applyPattern(joke)"></div>
+              
+                <!-- Is rated -->
+                <div class="pull-right" ng-if="joke.averageRating">
+                    {{trimNumber(joke.averageRating)}}
+                    <span class="fa fa-star"></span>
+
+                    <!-- Toggle ratings button -->
+                    <span class="btn btn-default btn-sm" ng-click="toggleHistogram(joke)" data-toggle="tooltip" data-placement="top" title="View all scores">
+                        <span class="entypo-down-open" ng-hide="isShowingHistogram(joke)"></span>  
+                        <span class="entypo-up-open" ng-show="isShowingHistogram(joke)"></span>             
+                    </span>
+                </div>
+
+                <!-- Is not rated -->
+                <div class="pull-right" ng-if="!joke.averageRating">
+                    Not yet rated
+                </div>
+
+                <!-- Ratings of joke -->
+                <div class="clearfix"></div>
+
+                <div ng-if="isShowingHistogram(joke)">
+                    <div class="row" ng-show="joke.ratings.length">
+                        <div class="chart-container col-md-offset-1 col-md-10">
+                            <div id="histogram{{joke.id}}" class="chart"></div>
+                        </div>
+                    </div>
+                    {{calculateHistogram(joke)}}
+
+                    <p class="list-group-item" ng-hide="joke.ratings.length">
+                        <span class="typcn typcn-flash" aria-hidden="true"></span>
+                        <em>There are no ratings for this joke yet! Consider <a href="/#/rate">rating</a> other jokes in order to increase chances of your joke being rated!</em>
+                    </p>
+
+                    <!-- <div class="btn btn-default btn-sm" ng-click="toggleRatings(joke)" ng-show="joke.ratings.length">
+                        <span class="typcn typcn-eye" aria-hidden="true"></span>
+                        <span ng-show="isShowingRatings(joke)">Hide</span><span ng-hide="isShowingRatings(joke)">View</span> ratings
+                    </div>
+
+                    <ul class="list-group" ng-show="isShowingRatings(joke)">
+                        <li class="list-group-item" ng-repeat="rating in joke.ratings | orderBy: '[score, date]' : true">
+
+                            <em>{{ toDate(rating.date) | date:'dd MMMM yyyy (HH:mm)'}}</em>
+                            <span class="pull-right">
+                                <span class="fa fa-star" ng-repeat="n in range(1,rating.score)"></span><span class="fa fa-star-o" ng-repeat="n in range(rating.score,4)"></span>
+                            </span>
+
+
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+   <head>        
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Create and rate jokes" />
+        <meta name="author" content="Thomas Winters" />
+        <meta name="referrer" content="always" />
+        <meta property="og:image" content="http://www.jokejudger.com/img/fb-img.png" />
+        <meta property="og:url" content="http://www.jokejudger.com" />
+        <meta name="application-name" content="JokeJudger">
+        <meta name="apple-mobile-web-app-title" content="JokeJudger">
+        <meta name="mobile-web-app-capable" content="yes">
+        
+        <link rel="shortcut icon" sizes="192x192" href="/icon.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#333333">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#333333">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+
+        <!-- jQuery (required by Bootstrap)-->
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+        <!-- Bootstrap -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
+        <!-- <link href="vendor/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"></link> -->
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" />
+        <link rel='stylesheet' href='vendor/typicons/font/typicons.min.css' />
+
+        <!-- Fonts-->
+        <!-- <link href='css/fonts/roboto.css' rel='stylesheet' type='text/css' /> -->
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css' />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300,600,700' rel='stylesheet' type='text/css' />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="vendor/fonts/montserrat-light.css" rel="stylesheet" type="text/css" />
+
+        <!-- Style-->
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+
+        <!-- Bookmarker -->
+        <link rel="stylesheet" href="css/addtohomescreen.css">
+        <script src="js/addtohomescreen.js"></script>
+
+        <!-- Google Charts -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <!-- AngularJS -->
+        <script src="vendor/angular/angular.min.js"></script>
+        <script src="vendor/angular/angular-route.min.js"></script>
+        <script src="vendor/angular/angular-touch.min.js"></script>
+        <script src="vendor/angular/angular-animate.min.js"></script>
+        <script src="vendor/angular/angular-sanitize.min.js"></script>
+        <script src="vendor/angular/angular-filter.min.js"></script>
+        <script src="vendor/angular/angular-timeago.min.js"></script>
+
+        <!-- Bootstrap ui -->
+        <script src="vendor/angular/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+        <!-- Modules -->
+        <script src="js/js-extensions.js"></script>
+        <script src="js/app.js"></script>
+
+        <!-- Controllers -->
+        <script src="js/controllers/CreateController.js"></script>
+        <script src="js/controllers/JokeOverviewController.js"></script>
+        <script src="js/controllers/LoggedInController.js"></script>
+        <script src="js/controllers/LoginController.js"></script>
+        <script src="js/controllers/ModifyPasswordController.js"></script>
+        <script src="js/controllers/ProfileController.js"></script>
+        <script src="js/controllers/RateController.js"></script>
+        <script src="js/controllers/ReceivedRatingsController.js"></script>
+        <script src="js/controllers/RegisterController.js"></script>
+        <script src="js/controllers/ResetPasswordController.js"></script>
+        <script src="js/controllers/UserJokesController.js"></script>
+        <script src="js/controllers/UserRatingsController.js"></script>
+        <script src="js/controllers/BestJokesController.js"></script>
+        <script src="js/controllers/BulkCreateController.js"></script>
+        
+        <!-- Services -->
+        <script src="js/services/login.js"></script>
+        <script src="js/services/jokes.js"></script>
+        <script src="js/services/util.js"></script>
+        <script src="js/services/admin.js"></script>
+        <script src="js/services/tooltips.js"></script>
+        <script src="js/services/datamuse.js"></script>
+        <script src="js/services/generator.js"></script>
+
+        <!-- Directives -->
+        <!-- <script src="js/directives/Z.js"></script> -->
+
+
+        <title>JokeJudger</title>  
+
+    </head>
+
+
+
+    <body ng-app="JokeJudger">
+        <div class="page-body"  ng-controller="LoggedInController">
+
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- <a class="navbar-brand" href="/#/"><img src="img/icon.png">JokeJudger</a> -->
+                        <a class="navbar-brand" href="/#/"> <img src="img/logo.svg" data-url="img/logo.png" alt="Logo"></a>
+
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="/#/" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                    <span class="typcn typcn-heart-full-outline" aria-hidden="true"></span>
+                                    <!-- <span class="typcn typcn-thumbs-up" aria-hidden="true"></span> -->
+                                    Rate
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/create" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                    <!-- <span class="typcn typcn-pencil" aria-hidden="true"></span> -->
+                                    <span class="typcn typcn-plus" aria-hidden="true"></span>
+                                    Create
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/hall-of-fame" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                    <!-- <span class="typcn typcn-pencil" aria-hidden="true"></span> -->
+                                    <span class="fa fa-star" aria-hidden="true"></span>
+                                    Top
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/notifications" data-toggle="collapse" data-target=".navbar-collapse.in" ng-if="getUser().mail">
+                                    <span class="fa fa-bell" aria-hidden="true"></span>
+                                    <span class="mobile-text">Notifications</span>
+                                    <div class="notifications-amount" ng-if="getUser().notificationsAmount && (getUser().notificationsAmount>0)">{{ getUser().notificationsAmount }}</div>
+                                </a>
+                            </li>
+
+                            <li class="dropdown" ng-if="getUser().mail">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                    <span class="mobile-text">{{ getUser().mail }}</span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                    </li>
+                                    <li ng-if="getUser().admin">
+                                        <a href="#/joke-overview" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                            <span class="fa fa-list-ul" aria-hidden="true"></span>
+                                            Admin overview
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#/user-jokes" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                            <!-- <span class="typcn typcn-pencil" aria-hidden="true"></span> -->
+                                            <span class="typcn typcn-lightbulb" aria-hidden="true"></span>
+                                            My jokes
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#/user-ratings" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                            <span class="typcn typcn-star-full-outline" aria-hidden="true"></span>
+                                            My ratings
+                                        </a>
+                                    </li>
+                                    <li ng-if="getUser().mail">
+                                        <a href="#/profile" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                            <span class="fa fa-cog" aria-hidden="true"></span>
+                                            Settings ({{ getUser().mail }})
+                                        </a>
+                                    </li>
+                                    <li ng-if="getUser().mail">
+                                        <a href="/logout" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                            <span class="fa fa-sign-out" aria-hidden="true"></span>
+                                            Log out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            
+
+
+                            <li class="hidden-xs" ng-if="!getUser() || !getUser().mail">
+                                <span class="fa divider fa-ellipsis-v fa-2x" aria-hidden="true"></span>  
+                            </li>
+                            <li ng-if="!getUser() || !getUser().mail">
+                                <a href="#/login" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                    <span class="fa fa-sign-in" aria-hidden="true"></span>
+                                    Login
+                                </a>
+                            </li>
+                            <li ng-if="!getUser() || !getUser().mail">
+                                <a href="#/register" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                    <span class="typcn typcn-user-add" aria-hidden="true"></span>
+                                    Register
+                                </a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </nav>
+
+            <div class="alert alert-{{alert.type}} alert-floating container" ng-if="alert.message">
+                <span class="pull-right">
+                    <span class="btn btn-{{alert.type}} btn-sm" ng-click="closeAlert()">
+                        <span class="fa fa-times" aria-hidden="true" ></span> 
+                    </span>                  
+                </span>
+                <span ng-bind-html="alert.message"></span>
+            </div>
+
+            <div class="page-content" >
+                <div ng-view="">An error occured.</div>
+            </div>
+            <div class="push"></div>
+        </div>
+        <div class="clearfix"></div>
+        
+        <footer class="footer navbar navbar-default">
+
+            <div class="container">
+                <a href="/#/about">About</a>
+                <span class="fa divider fa-ellipsis-v" aria-hidden="true"></span> 
+                <a id="bookmark-this-2" href="" title="Bookmark This Page">Bookmark JokeJudger</a>
+                <span class="fa divider fa-ellipsis-v" aria-hidden="true"></span> 
+                <a href="mailto:contact@jokejudger.com">Contact</a>
+            </div>
+        </footer>
+
+
+        <!-- Bookmarking -->
+        <script>
+            jQuery(function($) {
+              $('#bookmark-this-2').click(function(e) {
+                var bookmarkURL = window.location.href;
+                var bookmarkTitle = document.title;
+
+                if ('addToHomescreen' in window && addToHomescreen.isCompatible) {
+                  // Mobile browsers
+                  addToHomescreen({ autostart: false, startDelay: 0 }).show(true);
+                } else if (window.sidebar && window.sidebar.addPanel) {
+                  // Firefox <=22
+                  window.sidebar.addPanel(bookmarkTitle, bookmarkURL, '');
+                } else if ((window.sidebar && /Firefox/i.test(navigator.userAgent)) || (window.opera && window.print)) {
+                  // Firefox 23+ and Opera <=14
+                  $(this).attr({
+                    href: bookmarkURL,
+                    title: bookmarkTitle,
+                    rel: 'sidebar'
+                  }).off(e);
+                  return true;
+                } else if (window.external && ('AddFavorite' in window.external)) {
+                  // IE Favorites
+                  window.external.AddFavorite(bookmarkURL, bookmarkTitle);
+                } else {
+                  // Other browsers (mainly WebKit & Blink - Safari, Chrome, Opera 15+)
+                  alert('Press ' + (/Mac/i.test(navigator.userAgent) ? 'Cmd' : 'Ctrl') + '+D to bookmark this page.');
+                }
+
+                return false;
+              });
+            });
+        </script>
+
+
+    </body>
+</html>

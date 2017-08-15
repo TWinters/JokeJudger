@@ -1,0 +1,80 @@
+<div class="container">
+
+    <div class="row submit-joke">
+            <form class="form-inline" ng-submit="submitJoke()" autocapitalize="none">
+                <div class="col-md-12 submit-joke-container">
+
+
+                    <span class="joke">I like my </span>
+
+                    <!-- X -->
+                    <div class="form-group textbox">
+                        <div class="input-group">
+                            <input name="input_x" ng-model="joke.x" placeholder="something" uib-typeahead="suggestionX as suggestionX for suggestionX in getSuggestionsXY('x',joke)" typeahead-min-length="0" class="form-control create-textbox" autocapitalize="none" spellcheck="true" required />
+                            <div class="input-group-addon btn btn-default" ng-click="randomizeX(joke)">
+                                <span class="fa fa-refresh {{generatingX ? 'fa-spin fa-fw' : ''}}" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>                  
+
+                    <span class="joke"> like I like my </span>
+
+                    <!-- Y -->
+                    <div class="form-group textbox">
+                        <div class="input-group">
+                            <input name="input_y" ng-model="joke.y" placeholder="something" uib-typeahead="suggestionY as suggestionY for suggestionY in getSuggestionsXY('y',joke)" typeahead-min-length="0" class="form-control" autocapitalize="none" spellcheck="true" required />
+                            <div class="input-group-addon btn btn-default" ng-click="randomizeY(joke)">
+                                <span class="fa fa-refresh {{generatingY ? 'fa-spin fa-fw' : ''}}" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>   
+
+
+                    <span class="joke">: </span>
+
+                    <!-- Z -->
+                    <div class="form-group textbox">
+                        <div class="input-group">
+                            <input type="input_z" ng-model="joke.z" placeholder="property" uib-typeahead="suggestionZ as suggestionZ for suggestionZ in getSuggestionsZ(joke)" typeahead-min-length="0" class="form-control conclusion" autocapitalize="none" spellcheck="true" required />
+                            <div class="input-group-addon btn btn-default" ng-click="randomizeZ(joke)">
+                                <span class="fa fa-refresh {{generatingZ ? 'fa-spin fa-fw' : ''}}" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <span class="joke">.</span>
+
+
+                    
+
+                   <!--  <input type="text" ng-model="joke.z2" placeholder="Autocomplete test" uib-typeahead="suggestion as suggestion for suggestion in getSuggestionsZ(joke) | filter:{$viewValue} | orderBy: 'suggestion'" class="form-control" typeahead-editable="false" typeahead-select-on-exact="true" typeahead-input-formatter="$model" typeahead-min-length="0"> -->
+
+                <div class="button-holder">
+
+                    <div class="toggle-suggestions" ng-click="toggleSuggestions()">
+                        <span class="fa fa-toggle-{{allowSuggestions ? 'on' : 'off'}}" aria-hidden="true"></span>
+                        <!-- <span class="typcn typcn-flag" aria-hidden="true"></span> -->
+                        <!-- <div> -->
+                            
+                        <strong>Suggestions <span ng-if="allowSuggestions">on</span><span ng-if="!allowSuggestions">off</span></strong>
+                    </div>
+                    
+                    <div class="btn btn-default btn-lg" ng-click="generateChallenge(joke)">
+                        <span class="typcn typcn-flash" aria-hidden="true" ng-if="!generatingChallenge"></span>
+                        <span class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true" ng-if="generatingChallenge"></span>
+
+                        Challenge me!
+                    </div>
+                    <button type="submit" class="btn btn-default btn-lg" ng-click="">
+                        <span class="fa fa-paper-plane" aria-hidden="true"></span>
+                        Submit
+                    </button>
+
+                </div>
+                </div>
+            </form>
+
+
+    </div>
+
+</div>

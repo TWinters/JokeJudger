@@ -1,0 +1,66 @@
+<div class="container">
+
+    <!-- <div class="row">
+    </div> -->
+
+    <h1>Notifications</h1>
+
+
+    <div class="row load-jokes" ng-if="!hasLoadedReceivedRatings.value">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading received ratings...</span>
+    </div>
+
+    <p ng-show="getUser().receivedRatings.empty && hasLoadedReceivedRatings.value">
+        You haven't received a rating yet. Increase your chances of getting ratings by <a href="/#/rate">rating other jokes</a>!
+    </p>
+<!-- 
+    <div ng-repeat="">
+        <div><strong>Date:</strong> {{ date }}</div>
+        <p ng-repeat="v in joke">
+            <strong>{{ $index + 1}}</strong>. <div class="pull-left" ng-bind-html="applyPattern(joke)"></div>
+        </p>
+    </div> -->
+
+
+
+    <div class="" ng-if="!getUser().receivedRatings.empty" ng-repeat="(date, ratings) in getUser().receivedRatings" ng-if="getUser().receivedRatings && hasLoadedReceivedRatings.value">
+        <div class="">
+            <h3>
+                <!-- <em>
+                    Rated as
+                </em> -->
+                <!-- <strong> -->
+                <!-- </strong> -->
+                
+                <!-- <div class=""> -->
+                    <!-- <span class="fa fa-star" ng-repeat="n in range(1,rating)"></span><span class="fa fa-star-o" ng-repeat="n in range(rating,4)"></span> -->
+                    Events on {{ratings[0].date | date:'dd MMMM yyyy'}}
+
+                <!-- </div> -->
+            </h3>
+        </div>
+
+        <div class="panel-body list-group created-jokes">
+        <!-- TO DO: Fix notifications index bug -->
+            <div class="list-group-item row {{ isNewNotification(ratings,$parent.$index, $index) ? 'new-notification' : ''}} " ng-repeat="r in ratings | orderBy: 'date' : 'true'">
+              
+                    <span class="typcn typcn-media-play" aria-hidden="true" ng-if="isNewNotification($index)"></span>
+                <!-- Rating -->
+                <!-- <div class="pull-left"> -->
+                    <em>Someone gave you </em>
+                    <span class="fa fa-star" ng-repeat="n in range(1,r.score)"></span><span class="fa fa-star-o" ng-repeat="n in range(r.score,4)"></span>
+                <!-- </div> -->
+
+
+                <!-- Joke -->
+                <!-- <div class="pull-right"> -->
+                    <em> for: </em>
+                    "<span ng-bind-html="applyPattern(r,false)"></span>"
+                <!-- </div> -->
+                <em class="pull-right">{{toUTC(r.date) | timeAgo}}</em>
+              
+            </div>
+        </div>
+    </div>
+</div>

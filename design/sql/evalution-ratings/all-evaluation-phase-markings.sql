@@ -1,0 +1,1 @@
+SELECT SUM(offensive), sum(incomprehensive) FROM markings WHERE date > '2017-08-07 00:00:00.000000' ;
